@@ -1,7 +1,7 @@
 {
   "name": "jumpz",
   "displayName": "jumpz",
-  "description": "jump instantly to anywhere you see",
+  "description": "Jump instantly to any visible word with two keystrokes",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.109.0"
@@ -9,13 +9,31 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "jumpz.helloWorld",
-        "title": "Hello World"
+        "command": "jumpz.jump",
+        "title": "jumpz: Jump to Word"
+      },
+      {
+        "command": "jumpz.escape",
+        "title": "jumpz: Exit Jump Mode"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "jumpz.jump",
+        "key": "alt+enter",
+        "when": "editorTextFocus && !jumpz.jumpMode"
+      },
+      {
+        "command": "jumpz.escape",
+        "key": "escape",
+        "when": "editorTextFocus && jumpz.jumpMode"
       }
     ]
   },
