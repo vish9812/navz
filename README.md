@@ -1,71 +1,39 @@
-# jumpz README
+# jumpz
 
-This is the README for your extension "jumpz". After writing up a brief description, we recommend including the following sections.
+Jump instantly to any visible word in your editor using two keystrokes.
 
-## Features
+Type a two-letter code to move your cursor directly to any word on screen — no mouse, no repeated arrow keys.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## How it works
 
-For example if there is an image subfolder under your extension project workspace:
+1. Press `Alt+Enter` to activate jump mode
+2. Two-letter labels appear on every word in the visible area
+3. Type the first letter — non-matching labels dim, confirming your input
+4. Type the second letter — cursor jumps to that word instantly
 
-\!\[feature X\]\(images/feature-x.png\)
+Press `Escape` at any point to cancel.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Commands & keybindings
 
-## Requirements
+| Command | Keybinding | Description |
+|---------|-----------|-------------|
+| `jumpz.jump` | `Alt+Enter` | Jump cursor to a word |
+| `jumpz.jumpSelect` | `Alt+Shift+Enter` | Select text from cursor to a word |
+| `jumpz.escape` | `Escape` | Exit jump mode |
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+All keybindings only activate when the editor is focused and jump mode is (or isn't) active — they won't interfere with normal editing.
 
-## Extension Settings
+## Select mode
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+`Alt+Shift+Enter` works the same as jump, but extends the selection from your current cursor position to the target word. If you already have a selection, the existing anchor is preserved and only the active end moves.
 
-For example:
+## Known limitations
 
-This extension contributes the following settings:
+- Up to 676 words can be labeled at once (26×26 codes: `aa`–`zz`). On very long lines or large viewports this limit may be reached.
+- Conflicts with extensions that also override the `type` command (e.g. some Vim emulators). jumpz will show a warning and exit gracefully if this happens.
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Release notes
 
-## Known Issues
+### 0.0.1
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release.
