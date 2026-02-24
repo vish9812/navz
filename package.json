@@ -20,6 +20,10 @@
         "title": "jumpz: Jump to Word"
       },
       {
+        "command": "jumpz.jumpSelect",
+        "title": "jumpz: Select to Word"
+      },
+      {
         "command": "jumpz.escape",
         "title": "jumpz: Exit Jump Mode"
       }
@@ -28,6 +32,11 @@
       {
         "command": "jumpz.jump",
         "key": "alt+enter",
+        "when": "editorTextFocus && !jumpz.jumpMode"
+      },
+      {
+        "command": "jumpz.jumpSelect",
+        "key": "alt+shift+enter",
         "when": "editorTextFocus && !jumpz.jumpMode"
       },
       {

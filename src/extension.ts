@@ -7,6 +7,7 @@ export function activate(context: vscode.ExtensionContext) {
 	context.subscriptions.push(
 		jumpMode,
 		vscode.commands.registerCommand('jumpz.jump', () => jumpMode.activate()),
+		vscode.commands.registerCommand('jumpz.jumpSelect', () => jumpMode.activate(true)),
 		vscode.commands.registerCommand('jumpz.escape', () => jumpMode.exit())
 	);
 }

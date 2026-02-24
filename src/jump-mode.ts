@@ -20,6 +20,7 @@ interface ActiveJump {
 	editor: vscode.TextEditor;
 	decorState: DecorationState;
 	firstKey: string;
+	selectAnchor: vscode.Position | null;
 }
 
 export class JumpMode implements vscode.Disposable {
@@ -27,7 +28,7 @@ export class JumpMode implements vscode.Disposable {
 	private activeJump: ActiveJump | null = null;
 	private typeDisposable: vscode.Disposable | null = null;
 
-	activate(): void {
+	activate(select = false): void {
 		const editor = vscode.window.activeTextEditor;
 		if (!editor) {
 			return;
@@ -44,8 +45,9 @@ export class JumpMode implements vscode.Disposable {
 
 		const codeMap = assignCodes(positions);
 		const decorState = applyDecorations(editor, codeMap);
+		const selectAnchor = select ? editor.selection.anchor : null;
 
-		this.activeJump = { editor, decorState, firstKey: '' };
+		this.activeJump = { editor, decorState, firstKey: '', selectAnchor };
 		this.state = State.Showing;
 		vscode.commands.executeCommand('setContext', 'jumpz.jumpMode', true);
 
@@ -105,7 +107,8 @@ export class JumpMode implements vscode.Disposable {
 			const position = this.activeJump.decorState.codeMap.get(code);
 			if (position) {
 				const pos = new vscode.Position(position.line, position.character);
-				this.activeJump.editor.selection = new vscode.Selection(pos, pos);
+				const anchor = this.activeJump.selectAnchor ?? pos;
+				this.activeJump.editor.selection = new vscode.Selection(anchor, pos);
 				this.activeJump.editor.revealRange(
 					new vscode.Range(pos, pos),
 					vscode.TextEditorRevealType.InCenterIfOutsideViewport
