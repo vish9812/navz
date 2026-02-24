@@ -2,6 +2,8 @@
 
 navz is a keyboard-first navigation extension for VS Code. It lets you move your cursor to any visible word in two keystrokes, and snap your viewport into place with a single chord — no mouse, no repeated arrow keys, no scrolling to find where you were.
 
+![navz jump mode demo](jump.png)
+
 ## Jump to any word
 
 Press `Alt+Enter` to enter jump mode. Every word on screen gets a two-letter label. Type the first letter — non-matching labels dim immediately, confirming your input. Type the second letter and your cursor lands there instantly.

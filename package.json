@@ -3,11 +3,18 @@
   "displayName": "navz",
   "description": "Instantly navigate anywhere in the editor viewport.",
   "version": "0.0.1",
+  "publisher": "vish-navz",
+  "icon": "navz.png",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vish9812/navz"
+  },
   "engines": {
     "vscode": "^1.109.0"
   },
   "categories": [
-    "Other"
+    "Keymaps"
   ],
   "activationEvents": [
     "onStartupFinished"

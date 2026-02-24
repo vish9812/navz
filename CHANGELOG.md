@@ -1,9 +1,11 @@
 # Change Log
 
-All notable changes to the "navz" extension will be documented in this file.
+All notable changes to navz are documented here.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [0.0.1] - 2026-02-25
 
-## [Unreleased]
+Initial release.
 
-- Initial release
+- Jump cursor to any visible word in two keystrokes (`Alt+Enter`)
+- Extend selection to any visible word (`Alt+Shift+Enter`)
+- Scroll current line to center (`Ctrl+I C`) or top (`Ctrl+I T`)
