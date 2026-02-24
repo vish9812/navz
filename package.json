@@ -1,7 +1,7 @@
 {
-  "name": "jumpz",
-  "displayName": "jumpz",
-  "description": "Jump instantly to any visible word with two keystrokes",
+  "name": "navz",
+  "displayName": "navz",
+  "description": "Instantly navigate anywhere in the editor viewport.",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.109.0"
@@ -16,33 +16,51 @@
   "contributes": {
     "commands": [
       {
-        "command": "jumpz.jump",
-        "title": "jumpz: Jump to Word"
+        "command": "navz.jump",
+        "title": "navz: Jump to Word"
       },
       {
-        "command": "jumpz.jumpSelect",
-        "title": "jumpz: Select to Word"
+        "command": "navz.jumpSelect",
+        "title": "navz: Select to Word"
       },
       {
-        "command": "jumpz.escape",
-        "title": "jumpz: Exit Jump Mode"
+        "command": "navz.escape",
+        "title": "navz: Exit Jump Mode"
+      },
+      {
+        "command": "navz.scrollLineToCenter",
+        "title": "navz: Scroll Current Line to Center"
+      },
+      {
+        "command": "navz.scrollLineToTop",
+        "title": "navz: Scroll Current Line to Top"
       }
     ],
     "keybindings": [
       {
-        "command": "jumpz.jump",
+        "command": "navz.jump",
         "key": "alt+enter",
-        "when": "editorTextFocus && !jumpz.jumpMode"
+        "when": "editorTextFocus && !navz.jumpMode"
       },
       {
-        "command": "jumpz.jumpSelect",
+        "command": "navz.jumpSelect",
         "key": "alt+shift+enter",
-        "when": "editorTextFocus && !jumpz.jumpMode"
+        "when": "editorTextFocus && !navz.jumpMode"
       },
       {
-        "command": "jumpz.escape",
+        "command": "navz.escape",
         "key": "escape",
-        "when": "editorTextFocus && jumpz.jumpMode"
+        "when": "editorTextFocus && navz.jumpMode"
+      },
+      {
+        "command": "navz.scrollLineToCenter",
+        "key": "ctrl+i c",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "navz.scrollLineToTop",
+        "key": "ctrl+i t",
+        "when": "editorTextFocus"
       }
     ]
   },
